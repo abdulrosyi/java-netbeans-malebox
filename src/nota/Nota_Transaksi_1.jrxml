@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="864da94f-2853-4ee3-91ed-5c831049d1fb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="kode_transaksi" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+    
+     tabel_detailpembayaran.`nama` AS tabel_detailpembayaran_nama,
+     tabel_detailpembayaran.`harga` AS tabel_detailpembayaran_harga,
+     tabel_detailpembayaran.`jumlah` AS tabel_detailpembayaran_jumlah,
+     tabel_detailpembayaran.`total` AS tabel_detailpembayaran_total
+FROM
+     `tabel_detailpembayaran` tabel_detailpembayaran
+WHERE no_transaksi=$P{kode_transaksi}]]>
+	</queryString>
+	<field name="tabel_detailpembayaran_nama" class="java.lang.String"/>
+	<field name="tabel_detailpembayaran_harga" class="java.lang.Integer"/>
+	<field name="tabel_detailpembayaran_jumlah" class="java.lang.Integer"/>
+	<field name="tabel_detailpembayaran_total" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="127" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="25" y="0" width="146" height="126" uuid="76cf62bc-c354-4205-b6e8-09a4a7bd3bf2"/>
+				<imageExpression><![CDATA["D:\\NetBeans\\MaleBox\\src\\icon\\logo1.png"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement x="548" y="0" width="217" height="64" uuid="b684b0e8-aa58-4120-824a-d19305fdebd6"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd-MMMMM-yyyy", new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="0" width="802" height="33" backcolor="#0070C0" uuid="15787ed6-245f-4406-9b9f-e9b37ebb19d9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="403" y="0" width="189" height="33" forecolor="#FFFFFF" uuid="3c3f7759-58d7-4758-97be-735b5ea6a278"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HARGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="0" width="189" height="33" forecolor="#FFFFFF" uuid="e5e58c06-6404-4ab2-b857-878948718281"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUMLAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="590" y="2" width="189" height="33" forecolor="#FFFFFF" uuid="41be64a9-5b5d-44ed-b3c1-9fa23a51bfaf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL HARGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="0" width="189" height="33" forecolor="#FFFFFF" uuid="fa615e85-dd03-40db-940c-ab21c2d2c8c1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA BARANG]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="403" y="0" width="189" height="28" uuid="b2bad905-0ba9-44e0-8c86-1e841e2764c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabel_detailpembayaran_harga}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="590" y="0" width="189" height="28" uuid="a92ab6e8-fcc6-48ce-86c0-cfd56e688355"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabel_detailpembayaran_total}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="214" y="0" width="189" height="28" uuid="c4346e0d-a637-4ab9-811c-f6269b88c584"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabel_detailpembayaran_nama}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="25" y="0" width="189" height="28" uuid="0cdbf1fb-f275-43d3-a95c-f16c1d0b6cce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tabel_detailpembayaran_jumlah}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="34" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7eba99e8-1a38-4ab9-a980-7209071a113c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nama_kasir" class="java.lang.String"/>
+	<parameter name="tanggal" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     tabel_pemesanan.`kode_pemesanan` AS tabel_pemesanan_kode_pemesanan,
+     tabel_pemesanan.`nama_barang` AS tabel_pemesanan_nama_barang,
+     tabel_pemesanan.`jumlah_beli` AS tabel_pemesanan_jumlah_beli,
+     tabel_pemesanan.`kategori` AS tabel_pemesanan_kategori,
+     tabel_pemesanan.`tanggal` AS tabel_pemesanan_tanggal
+FROM
+     `tabel_pemesanan` tabel_pemesanan
+WHERE tanggal=$P{tanggal}]]>
+	</queryString>
+	<field name="tabel_pemesanan_kode_pemesanan" class="java.lang.String"/>
+	<field name="tabel_pemesanan_nama_barang" class="java.lang.String"/>
+	<field name="tabel_pemesanan_jumlah_beli" class="java.lang.Integer"/>
+	<field name="tabel_pemesanan_kategori" class="java.lang.String"/>
+	<field name="tabel_pemesanan_tanggal" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="802" height="79" uuid="7f4f0b8c-bb6f-48e8-a3b9-ac47ddfdcc97"/>
+				<imageExpression><![CDATA["D:\\NetBeans\\MaleBox\\src\\laporan\\Logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="24" forecolor="#FFFFFF" backcolor="#0070C0" uuid="8e2885f0-b84e-40a2-a953-ad56f259318d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="24" forecolor="#FFFFFF" uuid="030818b9-791e-4b1b-bf3f-1efc87d55f84"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nota Pemesanan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="24" width="125" height="20" uuid="03a80240-625f-4343-9b86-8492849d1673"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Dicetak Pada Tanggal :]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement x="127" y="24" width="168" height="20" uuid="e8b51358-75e6-4f70-9d56-59aba2a8497c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd-MMMMM-yyyy", new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="106" y="0" width="98" height="30" uuid="a53b8671-8c3a-4ba0-94e6-cf982512a6f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Pemesanan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="0" width="100" height="30" uuid="de548322-82e5-4d76-8440-086b332d236f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Beli]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="0" width="125" height="30" uuid="6683d30f-e9c2-4996-9a5f-a630934c2a95"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kategori]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="536" y="0" width="125" height="30" uuid="a44db4a6-e716-4f0d-8151-68429800eb3e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="0" width="107" height="30" uuid="7921d9ce-8884-4c17-9aa3-b44978316372"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="106" y="0" width="98" height="30" uuid="103ddab8-f68b-4bec-a279-708e09e79d0e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_pemesanan_kode_pemesanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="0" width="107" height="30" uuid="d25aaf95-2393-496e-a36a-4fa721950ea7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_pemesanan_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="0" width="100" height="30" uuid="ecd56d90-01c7-4131-ade0-e92a25a03625"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_pemesanan_jumlah_beli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="0" width="125" height="30" uuid="d63fdfb3-b013-4b60-a23f-013cb9e36782"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_pemesanan_kategori}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="536" y="0" width="125" height="30" uuid="d3a8c020-3ebb-47a0-964c-e674de006ece"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_pemesanan_tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="74" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="658" y="0" width="144" height="20" uuid="d74ce124-f6a9-4ec5-be45-7a38d569b4fb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy", new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="615" y="0" width="43" height="20" uuid="4f7097d4-b414-4924-b50e-d646b9c6b76a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="622" y="20" width="180" height="20" uuid="c3f3d2fc-9fd7-45e4-ae84-fc7861981a92"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kasir]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="622" y="54" width="180" height="20" uuid="dda80085-76ac-415f-a9f6-57dbcd094546"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nama_kasir}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

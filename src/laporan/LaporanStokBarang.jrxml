@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="500" pageHeight="400" columnWidth="460" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="9eeeb621-cc33-4be4-99ec-dec110b87118">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="64"/>
+	<parameter name="namakasir" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     tabel_stok.`kode` AS tabel_stok_kode,
+     tabel_stok.`nama` AS tabel_stok_nama,
+     tabel_stok.`harga` AS tabel_stok_harga,
+     tabel_stok.`stok` AS tabel_stok_stok,
+     tabel_stok.`kategori` AS tabel_stok_kategori,
+     tabel_stok.`tanggal` AS tabel_stok_tanggal
+FROM
+     `tabel_stok` tabel_stok ]]>
+	</queryString>
+	<field name="tabel_stok_kode" class="java.lang.String"/>
+	<field name="tabel_stok_nama" class="java.lang.String"/>
+	<field name="tabel_stok_harga" class="java.lang.Integer"/>
+	<field name="tabel_stok_stok" class="java.lang.Integer"/>
+	<field name="tabel_stok_kategori" class="java.lang.String"/>
+	<field name="tabel_stok_tanggal" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="75" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="460" height="75" uuid="407faabe-6195-4506-be4f-4550890eb6c0"/>
+				<imageExpression><![CDATA["D:\\NetBeans\\MaleBox\\src\\laporan\\Logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="460" height="20" backcolor="#0070C0" uuid="4eb74082-add8-4861-b966-3576be3d2f8d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Stok Barang]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement x="125" y="21" width="168" height="20" uuid="6ba0fc07-1645-4d55-982e-922d742c645c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd-MMMMM-yyyy", new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="21" width="125" height="20" uuid="5fc4d46c-1e43-43be-8884-d73c81dade2a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Dicetak Pada Tanggal :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="55" width="460" height="20" backcolor="#0070C0" uuid="ac8d6c32-1425-4515-9933-3afccaf6c73f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="55" width="42" height="20" backcolor="#0070C0" uuid="81975ac0-7e9c-4b00-b9e3-fd6372fc2f0c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="55" width="83" height="20" uuid="0273dfdb-e2a2-48a3-acf3-43dd41f86369"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="55" width="72" height="20" uuid="dbf4f475-0d01-432f-ad1e-5a4debc753b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="55" width="46" height="20" uuid="48349765-6ca8-46a2-b46e-adf6810a0071"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="55" width="124" height="20" uuid="8ecb897b-3d53-44f0-ace2-44657ad243dc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kategori]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="55" width="93" height="20" uuid="b1b79c8c-e840-495b-8841-f6841ec596a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="42" height="20" uuid="2951864c-1043-4e6a-852a-578037916e3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_stok_kode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="0" width="83" height="20" uuid="ef85ee12-c8d4-46e0-b87e-a7c84aaf5777"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_stok_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="0" width="72" height="20" uuid="613889ec-f461-49a0-8472-7ea3134e4195"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_stok_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="0" width="46" height="20" uuid="a3e18543-4da7-4473-99d4-b6f2e9b79887"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_stok_stok}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="0" width="124" height="20" uuid="e39040da-1ad3-46b2-a1b0-ececeeeafbd0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_stok_kategori}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="367" y="0" width="93" height="20" uuid="29b8e69f-fe41-41a2-be56-e47d1204fd88"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tabel_stok_tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="16"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement x="273" y="0" width="43" height="20" uuid="25685ecc-a6af-48cd-9d65-e8befc7aac3f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="316" y="0" width="144" height="20" uuid="8121b36a-9ee5-4de6-b73d-d66b217cfb61"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy", new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="38" width="180" height="20" uuid="a931f787-2db8-4bea-ab36-251b6281645c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kasir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="76" width="180" height="14" uuid="94f85a2c-b6d9-44cb-9ba3-427ef5fd0d1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[(..............................................)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="90" width="180" height="20" uuid="ef3f7177-faae-40a9-81eb-f2cceb74fcab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namakasir}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
